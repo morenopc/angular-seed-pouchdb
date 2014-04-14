@@ -17,4 +17,11 @@ describe('controllers', function(){
     var myCtrl2 = $controller('MyCtrl2');
     expect(myCtrl2).toBeDefined();
   }));
+
+  it('should print testdb response', inject(function($controller) {
+    //spec body
+    var PouchDBCtrl = $controller('PouchDBCtrl');
+    console.log(PouchDBCtrl)
+  }));
+
 });
