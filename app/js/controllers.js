@@ -11,7 +11,12 @@ angular.module('ehealth.controllers', [])
   }])
   .controller('PouchDBCtrl', ['$scope', 'PouchFac', function($scope, PouchFac) {
     
-    PouchFac.put({_id: 'foo', name: 'bar'});
+    PouchFac.put(
+      {
+        _id: 'moreno.pinheiro@gmail.com',
+        name: 'Moreno',
+        from: 'Brazil'
+      });
 
     PouchFac.info().then(function(info) {
       $scope.numOfDocs = info.doc_count;

@@ -30,9 +30,24 @@ describe('PouchDB Controller', function () {
       'PouchFac': service
     });
   }));
-  it('should get name bar from testdb', function () {
+  it('should get name from testdb', function () {
     scope.db.get('name').then(function (value) {
-      expect(value).toBe('bar');
+      expect(value).toBe('Moreno');
+    });
+  });
+  it('should get country from first record', function () {
+    scope.db.get('from').then(function (value) {
+      expect(value).toBe('Brazil');
+    });
+  });
+  it('should get country from second record', function () {
+    scope.db.put({
+      _id: 'testdb@pounch.com',
+      name: 'Pouch',
+      from: 'WorldWide'
+    });
+    scope.db.get('from').then(function (value) {
+      expect(value).toBe('WorldWide');
     });
   });
 });
