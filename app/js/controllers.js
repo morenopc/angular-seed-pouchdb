@@ -2,19 +2,25 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
+angular.module('ehealth.controllers', [])
   .controller('MyCtrl1', [function() {
 
   }])
   .controller('MyCtrl2', [function() {
 
   }])
-  .controller('PouchDBCtrl', [function(pouchdb) {
-    var db = pouchdb.create('testdb');
-    db.put({_id: 'foo', hello: 'world'
-    }).then(function(response) {
-        return response
-    }).catch(function(error) {
-        return error
+  .controller('PouchDBCtrl', ['$scope', 'PouchFac', function($scope, PouchFac) {
+    
+    PouchFac.put({_id: 'foo', name: 'bar'});
+
+    PouchFac.info().then(function(info) {
+      $scope.numOfDocs = info.doc_count;
     });
+
+    $scope.options = {
+      db: PouchFac,
+      name: 'Visitor'
+    };
+
+    $scope.db = PouchFac;
   }]);

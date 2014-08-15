@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "angular-seed-pouchdb",
+  "description": "AngularJS seed started project with pouchdb integration",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/morenopc/angular-seed-pouchdb",
   "license": "MIT",
   "private": true,
   "dependencies": {

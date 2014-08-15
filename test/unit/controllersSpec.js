@@ -3,8 +3,7 @@
 /* jasmine specs for controllers go here */
 
 describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
-
+  beforeEach(module('ehealth.controllers'));
 
   it('should ....', inject(function($controller) {
     //spec body
@@ -17,11 +16,23 @@ describe('controllers', function(){
     var myCtrl2 = $controller('MyCtrl2');
     expect(myCtrl2).toBeDefined();
   }));
+});
 
-  it('should print testdb response', inject(function($controller) {
-    //spec body
-    var PouchDBCtrl = $controller('PouchDBCtrl');
-    console.log(PouchDBCtrl)
+describe('PouchDB Controller', function () {
+  var scope, service, controller;
+  beforeEach(module('ehealth'));
+  beforeEach(module('ehealth.controllers'));
+  beforeEach(inject(function ($controller, $rootScope, PouchFac) {
+    scope = $rootScope.$new();
+    service = PouchFac;
+    controller = $controller('PouchDBCtrl', {
+      '$scope': scope,
+      'PouchFac': service
+    });
   }));
-
+  it('should get name bar from testdb', function () {
+    scope.db.get('name').then(function (value) {
+      expect(value).toBe('bar');
+    });
+  });
 });

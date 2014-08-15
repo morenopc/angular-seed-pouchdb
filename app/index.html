@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="ehealth">
 <head>
   <meta charset="utf-8">
   <title>My AngularJS App</title>
@@ -15,6 +15,15 @@
 
   <div>Angular seed app: v<span app-version></span></div>
 
+  <div ng-controller="PouchDBCtrl">
+    <p>Hello {{options.name}}! There are {{numOfDocs}} docs in your Pouch</p>
+    
+    <p>Root scope:</p>
+    <ul>
+      <li pouch-repeat="item in db" ng-bind="item.name"></li>
+    </ul>
+  </div>
+  {{ "Hello " + "you" }}
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->

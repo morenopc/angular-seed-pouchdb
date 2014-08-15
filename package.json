@@ -1,16 +1,17 @@
 {
-  "name": "angular-seed",
+  "name": "angular-seed-pouchdb",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "AngularJS seed started project with pouchdb integration",
+  "repository": "https://github.com/morenopc/angular-seed-pouchdb",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
     "protractor": "~0.17.0",
     "http-server": "^0.6.1",
     "bower": "^1.3.1",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "pouchdb": "~2.1.2"
   },
   "scripts": {
     "postinstall": "bower install",
